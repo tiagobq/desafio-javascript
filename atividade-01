@@ -1,0 +1,43 @@
+function numeroPorExtenso(numero) {
+    var unidades = ['', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove'];
+    var dezenas = ['', 'dez', 'vinte', 'trinta', 'quarenta', 'cinquenta', 'sessenta', 'setenta', 'oitenta', 'noventa'];
+    var especiais = ['', 'onze', 'doze', 'treze', 'quatorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove'];
+    var centenas = ['', 'cento', 'duzentos', 'trezentos', 'quatrocentos', 'quinhentos', 'seiscentos', 'setecentos', 'oitocentos', 'novecentos'];
+
+    var resultado = '';
+
+    // Tratar os milhares
+    var milhar = Math.floor(numero / 1000);
+    if (milhar > 0) {
+        resultado += unidades[milhar] + ' mil ';
+        numero %= 1000;
+    }
+
+    // Trata as centenas
+    var centena = Math.floor(numero / 100);
+    if (centena > 0) {
+        resultado += centenas[centena] + ' ';
+        numero %= 100;
+    }
+
+    // Trata as dezenas
+    var dezena = Math.floor(numero / 10);
+    if (dezena > 1) {
+        resultado += dezenas[dezena] + ' ';
+        numero %= 10;
+    } else if (dezena === 1) {
+        resultado += especiais[numero % 10] + ' ';
+        numero = 0;
+    }
+
+    // Trata as unidades
+    if (numero > 0) {
+        resultado += unidades[numero];
+    }
+
+    return resultado.trim();
+}
+
+// Exemplo de uso da função
+var numero = 1500;
+console.log(numeroPorExtenso(numero)); // Saída esperada: um mil e quinhentos

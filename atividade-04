@@ -1,0 +1,27 @@
+function calcularIMC(altura, peso) {
+    // Calcular o IMC
+    var imc = peso / (altura * altura);
+    
+    // Determinar a classificação com base no IMC
+    var classificacao;
+    if (imc <= 18.4) {
+        classificacao = "Abaixo do peso";
+    } else if (imc <= 24.9) {
+        classificacao = "Normal";
+    } else if (imc <= 29.9) {
+        classificacao = "Acima do peso";
+    } else {
+        classificacao = "Obeso";
+    }
+    
+    // Retorna o IMC e a classificação
+    return { imc: imc, classificacao: classificacao };
+}
+
+// Exemplo de uso da função
+var altura = 1.75; // altura em metros
+var peso = 70;     // peso em quilogramas
+
+var resultado = calcularIMC(altura, peso);
+console.log("Seu IMC é: " + resultado.imc.toFixed(2));
+console.log("Classificação: " + resultado.classificacao);

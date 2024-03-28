@@ -1,0 +1,44 @@
+class Pilha {
+    constructor() {
+        this.elementos = [];
+    }
+
+    // Método para adicionar um nome à pilha
+    adicionar(nome) {
+        this.elementos.push(nome);
+    }
+
+    // Método para remover o último nome da pilha
+    remover() {
+        if (this.elementos.length === 0) {
+            console.log("A pilha está vazia. Não é possível remover.");
+        } else {
+            return this.elementos.pop();
+        }
+    }
+
+    // Método para exibir os elementos da pilha
+    exibir() {
+        console.log("Elementos da Pilha:");
+        for (let i = this.elementos.length - 1; i >= 0; i--) {
+            console.log(this.elementos[i]);
+        }
+    }
+}
+
+// Exemplo de uso da classe Pilha
+const pilha = new Pilha();
+pilha.adicionar("Maria");
+pilha.adicionar("João");
+pilha.adicionar("Ana");
+
+pilha.exibir(); // Saída esperada: Ana, João, Maria
+
+pilha.remover();
+pilha.exibir(); // Saída esperada: João, Maria
+
+pilha.remover();
+pilha.exibir(); // Saída esperada: Maria
+
+pilha.remover();
+pilha.exibir(); // Saída esperada: A pilha está vazia. Não é possível remover.

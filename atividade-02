@@ -1,0 +1,17 @@
+function encontrarNumero(array, numero) {
+    // Percorre o array
+    for (var i = 0; i < array.length; i++) {
+        // Verifica se o número atual é igual ao número fornecido
+        if (array[i] === numero) {
+            // Retorna a posição do número encontrado
+            return "O número " + numero + " está na posição " + i + " do array.";
+        }
+    }
+    // Se o número não for encontrado, retorna uma mensagem indicando isso
+    return "O número " + numero + " não está no array.";
+}
+
+// Exemplo de uso da função
+var numeros = [10, 20, 30, 40, 50];
+var numeroProcurado = 30;
+console.log(encontrarNumero(numeros, numeroProcurado)); // Saída esperada: O número 30 está na posição 2 do array.

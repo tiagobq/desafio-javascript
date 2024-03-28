@@ -1,0 +1,44 @@
+class Fila {
+    constructor() {
+        this.elementos = [];
+    }
+
+    // Método para adicionar um nome à fila
+    adicionar(nome) {
+        this.elementos.push(nome);
+    }
+
+    // Método para remover o primeiro nome da fila
+    remover() {
+        if (this.elementos.length === 0) {
+            console.log("A fila está vazia. Não é possível remover.");
+        } else {
+            return this.elementos.shift();
+        }
+    }
+
+    // Método para exibir os elementos da fila
+    exibir() {
+        console.log("Elementos da Fila:");
+        for (let i = 0; i < this.elementos.length; i++) {
+            console.log(this.elementos[i]);
+        }
+    }
+}
+
+// Exemplo de uso da classe Fila
+const fila = new Fila();
+fila.adicionar("Maria");
+fila.adicionar("João");
+fila.adicionar("Ana");
+
+fila.exibir(); // Saída esperada: Maria, João, Ana
+
+fila.remover();
+fila.exibir(); // Saída esperada: João, Ana
+
+fila.remover();
+fila.exibir(); // Saída esperada: Ana
+
+fila.remover();
+fila.exibir(); // Saída esperada: A fila está vazia. Não é possível remover.
